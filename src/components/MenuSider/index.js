@@ -1,5 +1,6 @@
 import { Menu } from "antd";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 function MenuSider() {
   const items = [
@@ -9,8 +10,8 @@ function MenuSider() {
       key: "menu-1",
       children: [
         {
-          label: "Menu 1 - 1",
-          key: "menu-1-1",
+          label: <Link to="/">Dashboard</Link>,
+          key: "/",
         },
         {
           label: "Menu 1 - 2",
@@ -60,6 +61,11 @@ function MenuSider() {
         }
       ]
     },
+    {
+      label: <Link to="/book-room">Book Room</Link>,
+      con: <MenuUnfoldOutlined />,
+      key: "/book-room",
+    },
   ];
 
   return (
@@ -67,6 +73,8 @@ function MenuSider() {
        <Menu
         mode="inline"
         items={items}
+        defaultSelectedKeys={["/"]}
+        defaultOpenKeys={["menu-1"]}
       />
     </>
   )

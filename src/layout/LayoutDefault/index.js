@@ -1,12 +1,12 @@
 import { Layout } from "antd";
 import "./LayoutDefault.css";
-import LearnGrid from '../../components/LearnGrid'
 import logo from "../../images/logo.png";
 import logoFold from "../../images/logo-fold.png";
 import { MenuUnfoldOutlined, SearchOutlined} from "@ant-design/icons";
 import { useState } from "react";
 import Notify from "../../components/Notify";
 import MenuSider from "../../components/MenuSider";
+import { Outlet } from "react-router-dom";
 
 const { Sider, Content } = Layout;
 
@@ -44,7 +44,7 @@ function LayoutDefault() {
           </Sider>
 
           <Content className="content">
-            <LearnGrid />
+            <Outlet />
           </Content>
 
         </Layout>

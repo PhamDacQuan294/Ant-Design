@@ -73,7 +73,7 @@ function Notify() {
             items,
         }}
         trigger={['click']}
-        dropdownRender={(menu) => (
+        popupRender={(menu) => (
           <div className="notify__dropdown">
             <div className="notify__header">
               <div className="notify__header-title">
