@@ -1,10 +1,12 @@
 import './App.css';
-import LearnButton from './components/LearnButton';
+// import LearnButton from './components/LearnButton';
+import LearnGrid from './components/LearnGrid';
 
 function App() {
   return (
     <>
-      <LearnButton />
+      {/* <LearnButton /> */}
+      <LearnGrid />
     </>
   );
 }
