@@ -5,6 +5,7 @@ import logo from "../../images/logo.png";
 import logoFold from "../../images/logo-fold.png";
 import { MenuUnfoldOutlined, SearchOutlined} from "@ant-design/icons";
 import { useState } from "react";
+import Notify from "../../components/Notify";
 
 const { Sider, Content } = Layout;
 
@@ -29,7 +30,7 @@ function LayoutDefault() {
               </div>
             </div>
             <div className="header__nav-right">
-              Noi dung
+              <Notify />
             </div>
           </div>
         </header>
