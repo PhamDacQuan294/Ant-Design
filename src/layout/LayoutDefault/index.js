@@ -6,6 +6,7 @@ import logoFold from "../../images/logo-fold.png";
 import { MenuUnfoldOutlined, SearchOutlined} from "@ant-design/icons";
 import { useState } from "react";
 import Notify from "../../components/Notify";
+import MenuSider from "../../components/MenuSider";
 
 const { Sider, Content } = Layout;
 
@@ -39,7 +40,7 @@ function LayoutDefault() {
         <Layout>
 
           <Sider className="sider" collapsed={collapsed} theme="light">
-            Sider
+            <MenuSider />
           </Sider>
 
           <Content className="content">
