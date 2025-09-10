@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+.content {
+  padding: 20px;
+}

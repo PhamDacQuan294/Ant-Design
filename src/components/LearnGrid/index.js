@@ -6,29 +6,6 @@ function LearnGrid() {
   //10 la khoang cach giua cac cot, 20 la khoang cach giua cac hang
   return (
     <>
-      {/* <Row gutter={[10, 20]}>
-        <Col xxl={6} xl={4}>
-          <div className="box">
-            Cot 1
-          </div>
-        </Col>
-        <Col xxl={6} xl={6}>
-          <div className="box">
-            Cot 2
-          </div>
-        </Col>
-        <Col xxl={6} xl={6}>
-          <div className="box">
-            Cot 3
-          </div>
-        </Col>
-        <Col xxl={6} xl={8}>
-          <div className="box">
-            Cot 4
-          </div>
-        </Col>
-      </Row> */}
-
       <Row gutter={[20, 20]}>
         <Col xxl={6} xl={6} lg={6} md={12} sm={24} xs={24}>
           <CardItem title="Box 1" />
