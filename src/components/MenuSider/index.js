@@ -66,6 +66,11 @@ function MenuSider() {
       con: <MenuUnfoldOutlined />,
       key: "/book-room",
     },
+    {
+      label: <Link to="/create-room">Create Room</Link>,
+      con: <MenuUnfoldOutlined />,
+      key: "/create-room",
+    },
   ];
 
   return (
