@@ -1,5 +1,6 @@
-import { Badge, Table, Tooltip } from "antd";
+import { Table, Tooltip } from "antd";
 import { Tag } from 'antd';
+import DeleteRoom from "./DeleteRoom";
 
 function RoomTable(props) {
   const { rooms, onReload } = props;
@@ -73,7 +74,7 @@ function RoomTable(props) {
       key: 'actions',
       render: (_, record) => {
         return <>
-          
+          <DeleteRoom record={record} onReload={onReload} />
         </>;
       }
     },
