@@ -1,6 +1,7 @@
 import { Table, Tooltip } from "antd";
 import { Tag } from 'antd';
 import DeleteRoom from "./DeleteRoom";
+import EditRoom from "./EditRoom";
 
 function RoomTable(props) {
   const { rooms, onReload } = props;
@@ -75,6 +76,7 @@ function RoomTable(props) {
       render: (_, record) => {
         return <>
           <DeleteRoom record={record} onReload={onReload} />
+          <EditRoom record={record} onReload={onReload} />
         </>;
       }
     },
