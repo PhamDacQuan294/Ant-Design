@@ -1,8 +1,40 @@
-import { Carousel, Col, Row } from "antd";
+import { Carousel, Col, Collapse, QRCode, Rate, Row, Tabs } from "antd";
 import "./LearnGrid.css";
 import CardItem from "../CardItem";
+import { Image } from 'antd';
+import Slide from "./Slide";
+const { Panel } = Collapse;
 
 function LearnGrid() {
+    const list = [
+    {
+      id: 1,
+      title: "Logo 1 la gi?",
+      description: "Logo 1 la..."
+    },
+    {
+      id: 2,
+      title: "Logo 2 la gi?",
+      description: "Logo 2 la..."
+    },
+    {
+      id: 3,
+      title: "Logo 3 la gi?",
+      description: "Logo 3 la..."
+    }
+  ];
+
+  const items = [
+    {
+      key: '1',
+      label: 'Tab 1',
+      children: <Slide />,
+
+    },
+    { key: '2', label: 'Tab 2', children: 'Content of Tab Pane 2' },
+    { key: '3', label: 'Tab 3', children: 'Content of Tab Pane 3' },
+  ];
+  
   //10 la khoang cach giua cac cot, 20 la khoang cach giua cac hang
   return (
     <>
@@ -71,6 +103,29 @@ function LearnGrid() {
           4
         </div>
       </Carousel>
+
+      <Collapse defaultActiveKey="1" accordion={true}>
+        {list.map(item => (
+          <Panel header={item.title} key={item.id}>
+            <p>{item.description}</p>
+          </Panel>
+        ))}
+      </Collapse>;
+
+      <Image
+        width={200}
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        preview={true}
+      />
+
+      <Tabs items={items} />
+
+      <QRCode
+        errorLevel="H"
+        value="https://ant.design/"
+        icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      />
+      <Rate allowHalf character={["Yeu", "Kem", "Trung binh", "Kha", "Gioi"]} onChange={(e) => console.log(e)}/>;
     </>
   )
 }
