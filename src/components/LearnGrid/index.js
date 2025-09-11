@@ -1,4 +1,4 @@
-import { Col, Row } from "antd";
+import { Carousel, Col, Row } from "antd";
 import "./LearnGrid.css";
 import CardItem from "../CardItem";
 
@@ -55,6 +55,22 @@ function LearnGrid() {
           <CardItem title="Box 11" style={{ height: "400px" }} />
         </Col>
       </Row>
+
+       {/* autoplay tu dong chay */}
+      <Carousel autoplay dotPosition="top" dots={false} effect="fade">
+        <div className="slider-item">
+          1
+        </div>
+        <div className="slider-item">
+          2
+        </div>
+        <div className="slider-item">
+          3
+        </div>
+        <div className="slider-item">
+          4
+        </div>
+      </Carousel>
     </>
   )
 }
