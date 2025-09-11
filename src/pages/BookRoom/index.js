@@ -1,5 +1,6 @@
-import { Checkbox, Col, Input, Row, Space, Radio, Button, DatePicker, Select } from "antd";
+import { Button, Checkbox, Col, Input, Row, Space, DatePicker, Radio, Select } from "antd";
 import { useState } from "react";
+import { bookRoom } from "../../services/bookRoomService";
 
 const { RangePicker } = DatePicker;
 
@@ -49,10 +50,14 @@ function BookRoom() {
     setData(object);
   }
 
-
-  const handleSubmit = () => {
-    console.log("ok");
-  }
+  const handleSubmit = async () => {
+    const response = await bookRoom(data);
+    if(response) {
+      alert("Chuc mung ban da dat phong thanh cong!");
+    } else {
+      alert("Xin loi, vui long dat lai sau!");
+    }
+  };
 
   return (
     <>
@@ -74,7 +79,7 @@ function BookRoom() {
           <Input name='email' placeholder="Example: levanan@gmail.com" onChange={handleChangeInput} />
         </Col>
 
-         <Col span={12}>
+        <Col span={12}>
           <p>Additional services</p>
           <Checkbox.Group onChange={handleChangeCheckbox}>
             <Space direction='vertical'>
