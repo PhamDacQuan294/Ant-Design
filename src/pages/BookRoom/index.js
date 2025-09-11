@@ -1,8 +1,21 @@
-import { Checkbox, Col, Input, Row, Space, Radio, Button } from "antd";
+import { Checkbox, Col, Input, Row, Space, Radio, Button, DatePicker, Select } from "antd";
 import { useState } from "react";
 
+const { RangePicker } = DatePicker;
+
 function BookRoom() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    time: "14 gio"
+  });
+
+  const optionsTime = [];
+
+  for(let i = 7; i <= 24; i++) {
+    optionsTime.push({
+      value: i > 9 ? `${i} gio` : `0${i} gio`,
+      label: i > 9 ? `${i} gio` : `0${i} gio`,
+    });
+  }
 
   const handleChangeInput = (e) => {
     const object = {
@@ -19,6 +32,23 @@ function BookRoom() {
     };
     setData(object);
   }
+
+  const handleChangeDate = (dates, dateStrings) => {
+    const object = {
+      ...data,
+      date: dateStrings,
+    };
+    setData(object);
+  }
+
+  const handleChangeSelect = (e) => {
+    const object = {
+      ...data,
+      time: e,
+    };
+    setData(object);
+  }
+
 
   const handleSubmit = () => {
     console.log("ok");
@@ -62,6 +92,21 @@ function BookRoom() {
               <Radio value="mu">Mu</Radio>
             </Space>
           </Radio.Group>
+        </Col>
+
+        <Col span={12}>
+          <p>Chon ngay</p>
+          <RangePicker placeholder={["Nhan phong", "Tra phong"]} format="DD/MM/YYYY" onChange={handleChangeDate}/>
+        </Col>
+
+        <Col span={12}>
+          <p>Gio nhan phong</p>
+          <Select 
+            style={{ width: 120 }}
+            defaultValue={data.time}
+            options={optionsTime} 
+            onChange={handleChangeSelect}
+          />
         </Col>
 
         <Col span={24}>
