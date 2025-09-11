@@ -3,6 +3,7 @@ import { getListRoom } from "../../services/roomsService";
 import {  Button } from "antd";
 import { UnorderedListOutlined, AlignCenterOutlined } from "@ant-design/icons"
 import RoomGrid from "./RoomGrid";
+import RoomTable from "./RoomTable";
 
 function ListRoom() {
   const [rooms, setRooms] = useState([]);
@@ -17,18 +18,27 @@ function ListRoom() {
     fetchApi();
   }, []);
 
+  const handleReload = () => {
+    fetchApi();
+  }
   
   return (
     <>
-      <Button>
+      <Button onClick={() => setIsGrid(false)}>
         <UnorderedListOutlined />
       </Button>
-      <Button>
+      <Button onClick={() => setIsGrid(true)}>
         <AlignCenterOutlined />
       </Button>
-      <>
-        <RoomGrid rooms={rooms}/>
-      </>
+      {isGrid ? (
+        <>
+           <RoomGrid rooms={rooms}/>
+        </>
+      ) : (
+        <>
+          <RoomTable rooms={rooms} onReload={handleReload}/>
+        </>
+      )}
     </>
   )
 }
